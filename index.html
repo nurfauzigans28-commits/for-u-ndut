@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Untuk Cindut ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;padding:20px;display:flex;justify-content:center;align-items:center;font-family:Arial,sans-serif;background:linear-gradient(135deg,#ffd6e7,#ffb6d0,#ffeaf2);color:#87445f;overflow-x:hidden}
+.card{width:100%;max-width:420px;padding:30px 22px;background:rgba(255,255,255,.95);border-radius:25px;text-align:center;box-shadow:0 10px 35px #d85c8930;position:relative;z-index:2}
+.heart{font-size:60px;animation:detak 1s infinite}
+h1{color:#ff4f81}
+p{line-height:1.8}
+button{border:0;border-radius:30px;padding:14px 20px;margin:8px 4px;background:#ff4f81;color:white;font-size:16px;cursor:pointer;box-shadow:0 5px 15px #ff4f8140}
+button:active{transform:scale(.96)}
+.no{background:#aaa}
+#pilihan,#surat,#ditolak{display:none;animation:muncul .7s}
+#surat{margin-top:20px;padding:18px;background:#fff0f5;border-radius:18px;text-align:left}
+.penutup{text-align:center;color:#ff4f81;font-weight:bold}
+.hati{position:fixed;bottom:-30px;animation:terbang 6s linear forwards;pointer-events:none;z-index:1}
+@keyframes detak{50%{transform:scale(1.15)}}
+@keyframes muncul{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@keyframes terbang{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div id="awal">
+    <div class="heart">💗</div>
+    <h1>Hai, Cindut!</h1>
+    <p>Ada sesuatu yang mau Cipaa sampaikan buat kamu 🥹💕<br><br>Kamu siap nggak?</p>
+    <button onclick="mulai()">Siap? 💌</button>
+    <p style="font-size:13px;color:#c77b99">♡ from Cipaa, with love ♡</p>
+  </div>
+  <div id="pilihan">
+    <div class="heart">🥺💗</div>
+    <h1>Cindut mau baca pesan Cipaa?</h1>
+    <p>Pilih yang jujur yaa! 🙈</p>
+    <button onclick="mau()">Mauu banget 💗</button>
+    <button class="no" onclick="engga()">Engga ah 🙄</button>
+  </div>
+  <div id="isi" style="display:none">
+    <div class="heart">❤️</div>
+    <h1>Untuk Cindut</h1>
+    <p style="color:#c77b99">Surat kecil dari Cipaa 📖</p>
+    <div id="surat">
+      <p>Hai sayang, ❤️</p>
+      <p>Aku mungkin ngga terlalu pinter ngerangkai kata-kata, tapi aku pengen kamu tau, aku sayangg banget sama kamu.</p>
+      <p>Semenjak kenal kamu, hidupku jauh berubah.</p>
+      <p>Tetap jadi tokoh pendamping di setiap jalan ceritaku ya, aku berharap kita bisa sampai di akhir buku bersamaa. 🥹💗</p>
+      <p class="penutup">Dengan penuh sayang,<br>Cipaa untuk Cindut ❤️</p>
+    </div>
+    <p style="font-size:13px;color:#c77b99">Kamu dan aku, semoga sampai halaman terakhir. ♡</p>
+  </div>
+  <div id="ditolak">
+    <div class="heart">😒💔</div>
+    <h1>Dih yaudah</h1>
+    <p>Yahhh, Cipaa udah bikin pesan spesial buat Cindut loh 😭</p>
+    <button onclick="mau()">Yaudah deh, mau baca 💗</button>
+  </div>
+</div>
+<script>
+function sembunyikanSemua(){
+  document.getElementById("awal").style.display="none";
+  document.getElementById("pilihan").style.display="none";
+  document.getElementById("isi").style.display="none";
+  document.getElementById("ditolak").style.display="none";
+}
+function mulai(){sembunyikanSemua();document.getElementById("pilihan").style.display="block"}
+function mau(){sembunyikanSemua();document.getElementById("isi").style.display="block";document.getElementById("surat").style.display="block"}
+function engga(){sembunyikanSemua();document.getElementById("ditolak").style.display="block"}
+function buatHati(){
+  const h=document.createElement("div");h.className="hati";
+  h.textContent=["❤️","💗","💕","💖"][Math.floor(Math.random()*4)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(16+Math.random()*20)+"px";
+  h.style.animationDuration=(4+Math.random()*4)+"s";
+  document.body.appendChild(h);setTimeout(()=>h.remove(),8000);
+}
+setInterval(buatHati,700);
+</script>
+</body>
+</html>
